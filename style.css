@@ -1,0 +1,230 @@
+/* ===== Reset / Base Styles ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.7;
+  background-color: #f4f9f9;
+  color: #333;
+}
+
+/* ===== Header & Navigation ===== */
+header {
+  background: #1a5f7a;
+  color: white;
+  padding: 1.5rem 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.25rem;
+}
+
+.tagline {
+  font-size: 0.9rem;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+/* Navigation using Flexbox */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 0.5rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 0.7rem 1.3rem;
+  border-radius: 25px;
+  display: block;
+}
+
+nav a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+nav a.active {
+  background: #57c5b6;
+}
+
+/* ===== Hero Section ===== */
+.hero {
+  background: linear-gradient(rgba(26, 95, 122, 0.8), rgba(21, 152, 149, 0.8)),
+              #1a5f7a;
+  min-height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.hero-content {
+  padding: 2rem;
+  max-width: 800px;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+}
+
+/* ===== Intro Section ===== */
+#intro {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  background: white;
+  margin-top: 2rem;
+  border-radius: 8px;
+}
+
+#intro h2 {
+  color: #1a5f7a;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+#intro p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+/* ===== Articles Section ===== */
+#articles {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  display: flex;
+  gap: 2rem;
+}
+
+.article-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  border-top: 4px solid #57c5b6;
+  transition: all 0.3s ease;
+}
+
+.article-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  background: #f9f9f9;
+  transform: scale(1.05);
+}
+
+.article-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.article-card h3 {
+  color: #1a5f7a;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.article-card p {
+  color: #666;
+  line-height: 1.7;
+}
+
+/* ===== Footer ===== */
+footer {
+  background: #1a5f7a;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 3rem;
+}
+
+footer p {
+  margin-bottom: 0.5rem;
+}
+
+.footer-note {
+  font-size: 0.9rem;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  nav a {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero h2 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  #articles {
+    flex-direction: column;
+  }
+
+  #intro {
+    padding: 2rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 0.95rem;
+  }
+
+  .logo h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero {
+    min-height: 250px;
+  }
+
+  .hero h2 {
+    font-size: 1.6rem;
+  }
+
+  .article-card {
+    padding: 1.5rem;
+  }
+}
