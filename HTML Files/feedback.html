@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Share your feedback about Discover Lebanon and help us improve your experience.">
+  <title>Feedback | Discover Lebanon</title>
+  <link rel="stylesheet" href="CSS/style.css">
+  <style>
+    /* Feedback Page Specific Styles */
+    .feedback-section {
+      min-height: calc(100vh - 200px);
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 60px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .feedback-container {
+      max-width: 700px;
+      width: 100%;
+      background: white;
+      border-radius: 20px;
+      padding: 50px 40px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .feedback-container h1 {
+      color: #2d3748;
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .feedback-intro {
+      color: #718096;
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    .feedback-form {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-group label {
+      color: #2d3748;
+      font-weight: 600;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .required {
+      color: #e53e3e;
+      font-weight: bold;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      padding: 14px 18px;
+      border: 2px solid #e2e8f0;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: all 0.3s ease;
+      background-color: #f7fafc;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #667eea;
+      background-color: white;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    .error-message {
+      color: #e53e3e;
+      font-size: 0.875rem;
+      margin-top: 4px;
+      display: none;
+      font-weight: 500;
+    }
+
+    .error-message.show {
+      display: block;
+      animation: shake 0.3s ease;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      75% { transform: translateX(5px); }
+    }
+
+    .form-group input.error,
+    .form-group textarea.error {
+      border-color: #e53e3e;
+      background-color: #fff5f5;
+    }
+
+    .form-actions {
+      display: flex;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .btn-submit,
+    .btn-reset {
+      flex: 1;
+      padding: 16px 30px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-submit {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+    }
+
+    .btn-submit:active {
+      transform: translateY(0);
+    }
+
+    .btn-reset {
+      background: #e2e8f0;
+      color: #4a5568;
+    }
+
+    .btn-reset:hover {
+      background: #cbd5e0;
+    }
+
+    .success-message {
+      display: none;
+      margin-top: 25px;
+      padding: 20px;
+      background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+      color: white;
+      border-radius: 10px;
+      text-align: center;
+      animation: slideDown 0.4s ease;
+    }
+
+    .success-message.show {
+      display: block;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .success-icon {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .success-message p {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .feedback-section {
+        padding: 40px 15px;
+      }
+
+      .feedback-container {
+        padding: 35px 25px;
+      }
+
+      .feedback-container h1 {
+        font-size: 2rem;
+      }
+
+      .form-actions {
+        flex-direction: column;
+      }
+
+      .btn-submit,
+      .btn-reset {
+        width: 100%;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="../CSS/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <h1>🏛️ Discover Lebanon</h1>
+        <p class="tagline">Journey Through History</p>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Feedback Section -->
+  <main>
+    <section class="feedback-section">
+      <div class="feedback-container">
+        <h1>💬 We'd Love Your Feedback</h1>
+        <p class="feedback-intro">
+          Your thoughts and suggestions help us improve our website and provide better information about Lebanon's magnificent heritage sites. Please share your experience with us!
+        </p>
+
+        <!-- Feedback Form -->
+        <form id="feedbackForm" class="feedback-form">
+          
+          <!-- Name Field -->
+          <div class="form-group">
+            <label for="name">
+              👤 Your Name <span class="required">*</span>
+            </label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              placeholder="Enter your full name"
+              aria-required="true"
+            >
+            <span class="error-message" id="nameError">Please enter your name</span>
+          </div>
+
+          <!-- Email Field -->
+          <div class="form-group">
+            <label for="email">
+              📧 Email Address <span class="required">*</span>
+            </label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              placeholder="your.email@example.com"
+              aria-required="true"
+            >
+            <span class="error-message" id="emailError">Please enter a valid email address</span>
+          </div>
+
+          <!-- Subject Field (Optional) -->
+          <div class="form-group">
+            <label for="subject">
+              📝 Subject
+            </label>
+            <input 
+              type="text" 
+              id="subject" 
+              name="subject" 
+              placeholder="What is your feedback about?"
+            >
+          </div>
+
+          <!-- Message Field -->
+          <div class="form-group">
+            <label for="message">
+              💭 Your Message <span class="required">*</span>
+            </label>
+            <textarea 
+              id="message" 
+              name="message" 
+              rows="6" 
+              placeholder="Share your thoughts, suggestions, or questions..."
+              aria-required="true"
+            ></textarea>
+            <span class="error-message" id="messageError">Please enter a message (at least 10 characters)</span>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="form-actions">
+            <button type="submit" class="btn-submit">✉️ Send Feedback</button>
+            <button type="reset" class="btn-reset">🔄 Clear Form</button>
+          </div>
+
+          <!-- Success Message (Hidden by default) -->
+          <div class="success-message" id="successMessage">
+            <span class="success-icon">✓</span>
+            <p>Thank you for your feedback! We appreciate your input.</p>
+          </div>
+
+        </form>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Touristic Website Project</p>
+    <p class="footer-note">Preserving Lebanon's Heritage, One Monument at a Time</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="../JS/script.js"></script>
+</body>
+</html>
